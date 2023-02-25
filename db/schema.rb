@@ -24,12 +24,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_24_005154) do
 
   create_table "requests", force: :cascade do |t|
     t.bigint "pool_id", null: false
-    t.string "verb"
+    t.string "http_method", limit: 20
     t.jsonb "headers"
     t.string "query_string"
+    t.string "content_type"
+    t.integer "size", default: 0
     t.jsonb "form_params"
     t.text "body"
-    t.string "host"
+    t.string "ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["pool_id"], name: "index_requests_on_pool_id"
