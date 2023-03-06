@@ -1,0 +1,18 @@
+<div class="py-3 bg-white my-2 p-2 max-w-sm rounded-md shadow">
+  <p>Request ID: <%= request.hashid %></p>
+  <p>Method: <%= request.http_method %></p>
+  <p>Created at: <%= l(request.created_at, format: :short)%></p>
+  <%= 
+    button_to 'Remove',
+      request_path(request),
+      method: :delete,
+      class: "bg-red-500 px-2 py-1 text-white rounded inline-flex items-center justify-center shadow-md"
+  %>
+
+  <%=
+      link_to 'View',
+        request_path(request),
+        data: { turbo_frame: :request_details },
+        class: "bg-blue-300 px-3 py-2 rounded inline-flex items-center justify-center"
+    %>
+</div>

@@ -1,0 +1,12 @@
+<%= turbo_frame_tag :request_details do %>
+  <p>Request ID: <%= request.hashid %></p>
+  <p>Method: <%= request.http_method %></p>
+  <p>Created at: <%= l(request.created_at, format: :short)%></p>
+  <p>Body: <%= request.body %></p>
+  <p>Headers:</p>
+  <p>
+    <% request.headers.each do |k, v| %>
+      <p><%= "#{k}: #{v}" %></p>
+    <% end %>
+  </p>
+<% end %>

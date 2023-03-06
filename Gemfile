@@ -21,12 +21,17 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.10', '>= 3.10.1'
   gem 'faker'
   gem 'factory_bot_rails'
+  gem 'dotenv-rails', '~> 2.8', '>= 2.8.1'
 end
 
 group :development do
   gem "web-console"
+  gem "dockerfile-rails", ">= 1.2"
 end
 
 group :test do
   gem 'rspec-rails', '~> 6.0', '>= 6.0.1'
+  gem 'capybara', '~> 3.38'
 end
+
+gem "hashid-rails", "~> 1.0"

@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
   root "pages#index"
 
-  scope module: 'request', path: 'request', as: 'api_request' do
-    get     ":id", to: "hooks#create"
-    post    ":id", to: "hooks#create"
-    put     ":id", to: "hooks#create"
-    patch   ":id", to: "hooks#create"
-    delete  ":id", to: "hooks#create"
-    options ":id", to: "hooks#create"
+  resources :pools, only: [:show], path: 'p'
+
+  resources :requests, only: [:show, :destroy]
+
+  scope module: 'hook', path: 'hook', as: 'hook_request' do
+    get     ":id", to: "requests#create"
+    post    ":id", to: "requests#create"
+    put     ":id", to: "requests#create"
+    patch   ":id", to: "requests#create"
+    delete  ":id", to: "requests#create"
+    options ":id", to: "requests#create"
   end
 end

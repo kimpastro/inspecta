@@ -15,11 +15,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_24_005154) do
   enable_extension "plpgsql"
 
   create_table "pools", force: :cascade do |t|
-    t.string "identifier", null: false
     t.integer "quantity", default: 500, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["identifier"], name: "index_pools_on_identifier"
   end
 
   create_table "requests", force: :cascade do |t|

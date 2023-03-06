@@ -7,8 +7,7 @@ class RequestService
   end
 
   def headers
-    # needs improvment
-    @request.env.select {|k,v| k =~ /^HTTP_/}.except(NOT_ALLOWED_HEADERS)
+    @request.env.select {|k,v| k =~ /^HTTP_/}.delete_if { |k,_| NOT_ALLOWED_HEADERS.include?(k) }
   end
 
   def http_method

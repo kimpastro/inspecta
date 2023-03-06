@@ -6,7 +6,7 @@ RSpec.describe "Request", type: :request do
 
     RequestService::HTTP_METHODS.map(&:downcase).each do |http_method|
       before do
-        send(http_method, api_request_path(pool))
+        send(http_method, hook_request_path(pool))
       end
       
       it "should accept #{http_method}" do
