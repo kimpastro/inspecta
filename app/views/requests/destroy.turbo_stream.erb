@@ -2,6 +2,6 @@
 
 <% if @pool.requests.none? %>
   <%= turbo_stream.replace(:request_details) do %>
-    <%= render "empty_state"%>
+    <%= render "empty_state" %>
   <% end %>
 <% end %>
