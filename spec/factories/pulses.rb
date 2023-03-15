@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :request do
+  factory :pulse do
     pool
     http_method  { RequestService::HTTP_METHODS.sample   }
     headers      { { "HTTP_CONNECTION" => "keep-alive" } }

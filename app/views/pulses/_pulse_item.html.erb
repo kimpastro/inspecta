@@ -1,0 +1,11 @@
+<%= link_to pulse_path(pulse),
+            data: { turbo_frame: :pulse_details },
+            class: "list-group-item list-group-item-action" do %>
+
+  <div class="d-flex w-100 justify-content-between">
+    <h5 class="mb-1"><%= pulse.http_method %></h5>
+    <small class="text-muted"><%= pulse.created_at %></small>
+  </div>
+  <p class="mb-1">#<%= pulse.hashid %></p>
+  <small class="text-muted"><%= pulse.ip %></small>
+<% end %>

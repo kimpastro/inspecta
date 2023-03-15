@@ -1,6 +1,6 @@
-class CreateRequests < ActiveRecord::Migration[7.0]
+class CreatePulses < ActiveRecord::Migration[7.0]
   def change
-    create_table :requests do |t|
+    create_table :pulses do |t|
       t.references :pool, null: false, foreign_key: true
       t.string :http_method, limit: 20
       t.jsonb :headers

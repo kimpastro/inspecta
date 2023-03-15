@@ -2,7 +2,7 @@ class PoolsController < ApplicationController
   before_action :set_pool
 
   def show
-    @requests = @pool.requests.received
+    @pulses = @pool.pulses.received
   end
   
   private

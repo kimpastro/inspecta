@@ -1,5 +1,5 @@
 class Pool < ApplicationRecord
   include Hashid::Rails
   
-  has_many :requests
+  has_many :pulses
 end

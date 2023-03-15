@@ -1,4 +1,4 @@
-class Request < ApplicationRecord
+class Pulse < ApplicationRecord
   include Hashid::Rails
 
   belongs_to :pool

@@ -1,0 +1,12 @@
+<%= turbo_frame_tag :pulse_details do %>
+  <p>Request ID: <%= pulse.hashid %></p>
+  <p>Method: <%= pulse.http_method %></p>
+  <p>Created at: <%= l(pulse.created_at, format: :short)%></p>
+  <p>Body: <%= pulse.body %></p>
+  <p>Headers:</p>
+  <p>
+    <% pulse.headers.each do |k, v| %>
+      <p><%= "#{k}: #{v}" %></p>
+    <% end %>
+  </p>
+<% end %>

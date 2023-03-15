@@ -20,7 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_24_005154) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "requests", force: :cascade do |t|
+  create_table "pulses", force: :cascade do |t|
     t.bigint "pool_id", null: false
     t.string "http_method", limit: 20
     t.jsonb "headers"
@@ -32,8 +32,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_24_005154) do
     t.string "ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["pool_id"], name: "index_requests_on_pool_id"
+    t.index ["pool_id"], name: "index_pulses_on_pool_id"
   end
 
-  add_foreign_key "requests", "pools"
+  add_foreign_key "pulses", "pools"
 end

@@ -1,23 +1,21 @@
-<div class="my-3">
-  <h1 class="font-bold text-3xl">Pool: <%= @pool.hashid %></h1>
-</div>
+<%= turbo_stream_from @pool %>
 
-<div class="flex max-w-screen-xl">
-  <%= turbo_stream_from @pool %>
-  
-  <div id="requests" class="flex flex-col bg-stone-400 p-3 w-80">
-    <% @requests.each do |request| %>
-      <%= turbo_frame_tag "#{request.hashid}_item" do %>
-        <%= render request %>
-      <% end %>
-    <% end %>
+<div class="d-flex flex-row p-2">
+  <div class="col-md-3 col-sm-12 shadow rounded p-2">
+    <div>
+      Pool information: 
+      <i class="bi bi-0-circle"></i>
+      <%= @pool.hashid %>
+    </div>
+
+    <%= render partial: "pulses", locals: { pulses: @pulses } %>
   </div>
 
-  <div class="min-w-fit max-w-xl p-2 bg-slate-300 flex-wrap">
-    <%= turbo_frame_tag :request_details do %>
-      <% if @requests.none? %>
-        <%= render "requests/empty_state" %>
+  <div class="col-md-9 col-sm-12 bg-success">
+    <div>
+      <%= turbo_frame_tag :pulse_details do %>
+        <%= render partial: "pools/empty_state" if @pulses.none? %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>

@@ -1,0 +1,7 @@
+<%= turbo_stream.remove("#{@pulse.hashid}_item") %>
+
+<% if @pool.pulses.none? %>
+  <%= turbo_stream.replace(:pulse_details) do %>
+    <%= render "empty_state" %>
+  <% end %>
+<% end %>

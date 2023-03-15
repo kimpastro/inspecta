@@ -1,10 +1,10 @@
-class Hook::RequestsController < ApiController
+class Api::PulsesController < ApiController
   before_action :set_pool
 
   def create
-    request_service = RequestService.new(request)      
+    request_service = RequestService.new(request)
 
-    @request = @pool.requests.create!(
+    @pulse = @pool.pulses.create!(
       ip: request_service.ip,
       size: request_service.size,
       body: request_service.body,

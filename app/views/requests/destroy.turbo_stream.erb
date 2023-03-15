@@ -1,7 +1,0 @@
-<%= turbo_stream.remove("#{@deleted_request.hashid}_item") %>
-
-<% if @pool.requests.none? %>
-  <%= turbo_stream.replace(:request_details) do %>
-    <%= render "empty_state" %>
-  <% end %>
-<% end %>
