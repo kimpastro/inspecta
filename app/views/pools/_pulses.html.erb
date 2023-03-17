@@ -1,7 +1,0 @@
-<div id="pulses" class="list-group">
-  <% @pulses.each do |pulse| %>
-    <%= turbo_frame_tag "#{pulse.hashid}_item" do %>
-      <%= render partial: "pulses/pulse_item", locals: { pulse: pulse } %>
-    <% end %>
-  <% end %>
-</div>

@@ -1,21 +1,11 @@
 <%= turbo_stream_from @pool %>
 
-<div class="d-flex flex-row p-2">
-  <div class="col-md-3 col-sm-12 shadow rounded p-2">
-    <div>
-      Pool information: 
-      <i class="bi bi-0-circle"></i>
-      <%= @pool.hashid %>
-    </div>
-
-    <%= render partial: "pulses", locals: { pulses: @pulses } %>
+<div class="d-flex flex-row p-0">
+  <div class="col-md-3 col-sm-12 p-4 bg-light border-dark-subtl border-end full-height">
+    <%= render partial: "pulses/list", locals: { pulses: @pulses } %>
   </div>
 
-  <div class="col-md-9 col-sm-12 bg-success">
-    <div>
-      <%= turbo_frame_tag :pulse_details do %>
-        <%= render partial: "pools/empty_state" if @pulses.none? %>
-      <% end %>
-    </div>
+  <div class="col-md-9 col-sm-12 p-4">
+    <%= render partial: "pulses/detail", locals: { first_pulse: @pulses&.first } %>
   </div>
 </div>

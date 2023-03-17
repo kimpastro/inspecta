@@ -1,11 +1,23 @@
-<%= link_to pulse_path(pulse),
-            data: { turbo_frame: :pulse_details },
-            class: "list-group-item list-group-item-action" do %>
-
-  <div class="d-flex w-100 justify-content-between">
-    <h5 class="mb-1"><%= pulse.http_method %></h5>
-    <small class="text-muted"><%= pulse.created_at %></small>
+<%= turbo_frame_tag "#{pulse.hashid}_item" do %>
+  <div class="card shadow-sm border border-2">
+    <div class="card-header p-2 d-flex flex-row justify-content-between bg-white">
+      <div class="align-self-center">
+        <span class="badge bg-success fs-6"><%= pulse.http_method %></span>
+      </div>
+      
+      <span class="align-self-center"><%= pulse.ip %></span>
+      <%= link_to pulse_path(pulse.hashid), data: { turbo_method: :delete }, onclick: "console.log('trash');", class: "p-0 text-danger" do %>
+        <i class="bi bi-trash fs-5"></i>
+      <% end %>
+      
+    </div>
+    <div class="card-body p-2 bg-light">
+      <%= link_to pulse_path(pulse.hashid), data: { turbo_frame: :pulse_details }, onclick: "console.log('view');", class: "text-decoration-none" do %>
+        <div class="d-flex text-dark justify-content-between">
+          <span>#<%= pulse.hashid %></span>
+          <span><%= l(pulse.created_at, format: :with_sec) %></span>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <p class="mb-1">#<%= pulse.hashid %></p>
-  <small class="text-muted"><%= pulse.ip %></small>
 <% end %>

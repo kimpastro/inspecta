@@ -1,2 +1,10 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+
+* {
+  font-size: 0.9rem;
+}
+
+.full-height {
+  height: 100vh;
+}

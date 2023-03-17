@@ -1,0 +1,7 @@
+<%= render partial: "pulses/header_list", locals: { quantity_of_pulses: @pool.pulses.size, total_pulses: @pool.quantity } %>
+
+<div id="pulses" class="d-flex flex-column gap-2">
+  <% @pulses.each do |pulse| %>
+    <%= render partial: "pulses/pulse_item", locals: { pulse: pulse } %>
+  <% end %>
+</div>
