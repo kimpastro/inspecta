@@ -1,8 +1,14 @@
 <%= turbo_stream_from @pool %>
 
 <div class="d-flex flex-row p-0">
-  <div class="col-md-3 col-sm-12 p-4 bg-light border-dark-subtl border-end full-height">
-    <%= render partial: "pulses/list", locals: { pulses: @pulses } %>
+  <div class="col-md-3 col-sm-12 py-4 bg-light border-dark-subtl border-end full-height">
+    <%= render partial: "pulses/header_list", locals: { quantity_of_pulses: @pulses.size, total_pulses: @pool.quantity } %>
+    
+    <div id="pulses" class="d-flex flex-column gap-1">
+      <% @pool.pulses.each do |pulse| %>
+        <%= render partial: "pulses/pulse_item", locals: { pulse: pulse } %>
+      <% end %>
+    </div>
   </div>
 
   <div class="col-md-9 col-sm-12 p-3">

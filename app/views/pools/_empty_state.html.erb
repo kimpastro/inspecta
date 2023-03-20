@@ -1,15 +1,17 @@
-<div class="d-flex flex-column gap-2 border rounded p-3">
-  <div class="border-bottom">
-    <p>Welcome to Inspecta.</p>
-    <p>Inspect HTTP Requests with Ease - Your tool for Analyzing Request Details</p>
-  </div>
+<%= turbo_frame_tag :pulse_details do %>
+  <div class="d-flex flex-column gap-2 border rounded p-3">
+    <div class="border-bottom">
+      <p>Welcome to Inspecta.</p>
+      <p>Inspect HTTP Requests with Ease - Your tool for Analyzing Request Details</p>
+    </div>
 
-  <div>
-    <p><strong>This is your unique URL:</strong></p>
-    <p class="fs-5 font-monospace bg-primary badge"><%= pulse_request_url(pool.hashid) %></p>
-  </div>
+    <div>
+      <p><strong>This is your unique URL:</strong></p>
+      <p class="fs-5 font-monospace bg-primary badge"><%= pulse_request_url(pool.hashid) %></p>
+    </div>
 
-  <div>
-    <span class="fst-italic">Requests to your unique URL are instantly logged here without the need for refreshing.</span>
+    <div>
+      <span class="fst-italic">Requests to your unique URL are instantly logged here without the need for refreshing.</span>
+    </div>
   </div>
-</div>
+<% end %>
