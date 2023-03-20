@@ -46,7 +46,7 @@ module Pulses
     end
   
     def size
-      @request.env["CONTENT_LENGTH"]
+      @request.env["CONTENT_LENGTH"].to_i
     end
   
     def form_params

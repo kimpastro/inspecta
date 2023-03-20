@@ -1,4 +1,4 @@
-<%= turbo_stream.remove("#{@pulse.hashid}_item") %>
+<%# turbo_stream.remove("#{@pulse.hashid}_item") %>
 
 <%= turbo_stream.replace(:header_pulse_list) do %>
  <%= render partial: "pulses/header_list", locals: { quantity_of_pulses: @pool.pulses.size, total_pulses: @pool.quantity } %>
@@ -6,6 +6,6 @@
 
 <% if @pool.pulses.none? %>
   <%= turbo_stream.replace(:pulse_details) do %>
-    <%= render "pools/empty_state" %>
+    <%= render partial: "pools/empty_state", locals: { pool: @pool } %>
   <% end %>
 <% end %>

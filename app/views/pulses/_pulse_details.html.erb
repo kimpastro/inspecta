@@ -1,12 +1,54 @@
 <%= turbo_frame_tag :pulse_details do %>
-  <p>Request ID: <%= pulse.hashid %></p>
-  <p>Method: <%= pulse.http_method %></p>
-  <p>Created at: <%= l(pulse.created_at, format: :short)%></p>
+  <div class="d-flex gap-4">
+    <div class="w-100">
+      <table class="table table-light table-hover table-sm table-striped">
+        <thead class="table-secondary">
+          <tr>
+            <th colspan="2">Request Details</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <tr>
+            <td><%= pulse.http_method %></td>
+            <td><%= pulse_request_url(pool.hashid) %></td>
+          </tr>
+          <tr>
+            <td>Host</td>
+            <td><%= pulse.ip %></td>
+          </tr>
+          <tr>
+            <td>Date</td>
+            <td><%= l(pulse.created_at, format: :with_sec)%></td>
+          </tr>
+          <tr>
+            <td>Size</td>
+            <td><%= pulse.size %> bytes</td>
+          </tr>
+          <tr>
+            <td>ID</td>
+            <td><%= pulse.hashid %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="w-100">
+      <table class="table table-light table-hover table-sm table-striped">
+        <thead class="table-secondary">
+          <tr>
+            <th colspan="2">Headers</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <% pulse.headers.each do |key, value| %>
+            <tr>
+              <td><%= key.gsub(/^HTTP_/, '').downcase %></td>
+              <td><%= value %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
   <p>Body: <%= pulse.body %></p>
-  <p>Headers:</p>
-  <p>
-    <% pulse.headers.each do |k, v| %>
-      <p><%= "#{k}: #{v}" %></p>
-    <% end %>
-  </p>
+
 <% end %>

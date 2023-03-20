@@ -1,8 +1,19 @@
 <%= turbo_frame_tag :header_pulse_list do %>
   <header class="mb-3 d-flex flex-column justify-content-center">
-    <span class="text-center">Requests: (<%= quantity_of_pulses %>/<%= total_pulses %>)</span>
-    <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="<%= quantity_of_pulses %>" aria-valuemin="0" aria-valuemax="<%= total_pulses %>">
-      <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: <%= quantity_of_pulses %>%"></div>
-    </div>
+    <span class="text-center">
+      Requests: (<%= quantity_of_pulses %>/<%= total_pulses %>)
+    </span>
   </header>
+
+  <hr>
+
+  <% if quantity_of_pulses.zero? %>
+    <div class="d-flex justify-content-center align-items-center gap-2">
+      <div class="spinner-grow spinner-grow-sm text-info" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <span>Waiting for requests</span>
+    </div>
+  <% end %>
 <% end %>
+
