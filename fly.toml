@@ -1,8 +1,9 @@
-# fly.toml file generated for atomic-hook on 2023-03-01T14:13:53-03:00
+# fly.toml file generated for atomic-hook on 2023-03-20T22:21:13-03:00
 
 app = "atomic-hook"
 kill_signal = "SIGINT"
 kill_timeout = 5
+primary_region = "gru"
 processes = []
 
 [env]
