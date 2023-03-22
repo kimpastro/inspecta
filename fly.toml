@@ -1,4 +1,4 @@
-# fly.toml file generated for atomic-hook on 2023-03-20T22:21:13-03:00
+# fly.toml file generated for atomic-hook on 2023-03-21T20:56:58-03:00
 
 app = "atomic-hook"
 kill_signal = "SIGINT"
