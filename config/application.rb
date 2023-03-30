@@ -4,7 +4,7 @@ require "rails/all"
 
 Bundler.require(*Rails.groups)
 
-module Hook
+module Inspecta
   class Application < Rails::Application
     config.load_defaults 7.0
 

@@ -1,24 +1,17 @@
-# README
+## Inspecta
+Inspect HTTP Requests with Ease
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The intent of this project is to have a tool in order to handle http requests locally.
 
-Things you may want to cover:
+## Installation
+Just run `bin/setup` and you are good to go.
 
-* Ruby version
+## Running
+`bin/dev` or just `bin/rails server`
 
-* System dependencies
+Access `localhost:3000`
 
-* Configuration
+## Contributing
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## License
+MIT

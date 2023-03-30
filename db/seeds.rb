@@ -1,2 +1,1 @@
-puts "\n== Seeding the database with fixtures =="
-system("bin/rails db:fixtures:load")
+puts "\n== No need for seeds. Just access root_path and you are good to go. =="
