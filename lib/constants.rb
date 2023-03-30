@@ -1,3 +1,0 @@
-module Constants
-  HTTP_METHODS = %w[GET POST PUT PATCH DELETE OPTIONS]
-end
