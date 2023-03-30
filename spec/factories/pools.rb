@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :pool do
-    quantity { 1 }
+    quantity { 10 }
   end
 end

@@ -4,6 +4,6 @@ class EmptyStateComponent < ApplicationComponent
   end
 
   def render?
-    @pool.pulses.empty?
+    @pool.pulses.size.zero?
   end
 end
