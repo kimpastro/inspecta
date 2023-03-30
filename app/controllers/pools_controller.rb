@@ -6,6 +6,7 @@ class PoolsController < ApplicationController
   end
   
   private
+
   def set_pool
     @pool = Pool.find_by_hashid!(params[:id])
   end

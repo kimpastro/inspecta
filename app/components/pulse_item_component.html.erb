@@ -9,7 +9,7 @@
         <span>#<%= @pulse.hashid %></span> -
         <span><%= @pulse.ip %></span>
       </div>
-      <span><%= l(@pulse.created_at, format: :with_sec) %></span>
+      <span><%= l(@pulse.created_at, format: :with_sec) %> UTC</span>
     <% end %>
   
     <%= link_to pulse_path(@pulse.hashid), data: { turbo_method: :delete }, class: "text-danger align-self-center mt-1 me-4" do %>

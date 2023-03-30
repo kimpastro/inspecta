@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :find_or_initialize_pool_cookie, only: [:index, :show]
+  before_action :find_or_initialize_pool_cookie, only: [:index]
   
   def index; end
 
