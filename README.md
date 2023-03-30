@@ -11,7 +11,8 @@ Just run `bin/setup` and you are good to go.
 
 Access `localhost:3000`
 
-## Contributing
+## See it in action
+I've set it online on: `https://atomic-hook.fly.dev/`
 
 ## License
 MIT
