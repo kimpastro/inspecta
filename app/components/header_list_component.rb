@@ -8,6 +8,6 @@ class HeaderListComponent < ApplicationComponent
   end
 
   def pulse_count
-    @pool.pulses.count
+    @pool.pulses.size
   end
 end

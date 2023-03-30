@@ -1,7 +1,7 @@
 class Pulse < ApplicationRecord
   include Hashid::Rails
 
-  belongs_to :pool
+  belongs_to :pool, counter_cache: :pulses_count
 
   scope :received, -> { order(id: :desc) }
 
