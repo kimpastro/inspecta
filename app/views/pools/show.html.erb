@@ -2,16 +2,15 @@
 
 <div class="d-flex flex-row p-0">
   <div class="col-md-3 col-sm-12 py-4 bg-light border-dark-subtl border-end full-height">
-    <%= render partial: "pulses/header_list", locals: { quantity_of_pulses: @pulses.size, total_pulses: @pool.quantity } %>
+    <%= render HeaderListComponent.new(pool: @pool) %>
     
     <div id="pulses" class="d-flex flex-column gap-1">
-      <% @pool.pulses.each do |pulse| %>
-        <%= render partial: "pulses/pulse_item", locals: { pulse: pulse } %>
-      <% end %>
+      <%= render PulseItemComponent.with_collection(@pulses) %>
     </div>
   </div>
 
   <div class="col-md-9 col-sm-12 p-3">
-    <%= render partial: "pulses/detail", locals: { pool: @pool, first_pulse: @pulses&.first } %>
+    <%= render EmptyStateComponent.new(pool: @pool) %>
+    <%= render PulseDetailComponent.new(pulse: @pulses&.first) %>
   </div>
 </div>

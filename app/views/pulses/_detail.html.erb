@@ -1,7 +1,0 @@
-<%= turbo_frame_tag :pulse_details do %>
-  <% if first_pulse %>
-    <%= render partial: "pulses/pulse_details", locals: { pool: pool, pulse: first_pulse } %>
-  <% else %>
-    <%= render partial: "pools/empty_state", locals: { pool: pool } %>
-  <% end %>
-<% end %>

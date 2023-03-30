@@ -1,4 +1,4 @@
-<%= turbo_frame_tag :pulse_details do %>
+<%= tag.turbo_frame id: :pulse_details do %>
   <div class="d-flex flex-column gap-2">
     <div class="d-flex gap-4">
       <div class="w-100">
@@ -10,24 +10,24 @@
           </thead>
           <tbody class="table-group-divider">
             <tr>
-              <td><span class="rounded p-1 <%= http_tag(pulse.http_method) %>"><%= pulse.http_method %></span></td>
-              <td><%= pulse_request_url(pool.hashid) %></td>
+              <td><span class="rounded p-1 <%= http_tag(@pulse.http_method) %>"><%= @pulse.http_method %></span></td>
+              <td><%= pulse_request_url(pool_id) %></td>
             </tr>
             <tr>
               <td>Host</td>
-              <td><%= pulse.ip %></td>
+              <td><%= @pulse.ip %></td>
             </tr>
             <tr>
               <td>Date</td>
-              <td><%= l(pulse.created_at, format: :with_sec) %> - (<%= time_ago_in_words(pulse.created_at) %> ago)</td>
+              <td><%= l(@pulse.created_at, format: :with_sec) %> - (<%= time_ago_in_words(@pulse.created_at) %> ago)</td>
             </tr>
             <tr>
               <td>Size</td>
-              <td><%= pulse.size %> bytes</td>
+              <td><%= @pulse.size %> bytes</td>
             </tr>
             <tr>
               <td>ID</td>
-              <td><%= pulse.hashid %></td>
+              <td><%= @pulse.hashid %></td>
             </tr>
           </tbody>
         </table>
@@ -40,7 +40,7 @@
             </tr>
           </thead>
           <tbody class="table-group-divider">
-            <% pulse.headers.each do |key, value| %>
+            <% @pulse.headers.each do |key, value| %>
               <tr>
                 <td><%= key.gsub(/^HTTP_/, '').downcase %></td>
                 <td><%= value %></td>
@@ -48,7 +48,7 @@
             <% end %>
             <tr>
               <td>content-type</td>
-              <td><%= pulse.content_type %></td>
+              <td><%= @pulse.content_type %></td>
             </tr>
           </tbody>
         </table>
@@ -57,8 +57,7 @@
 
     <h5>Body</h5>
     <div class="bg-light rounded p-2">
-      <%= pulse.body %>
+      <%= @pulse.body %>
     </div>
   </div>
-
 <% end %>

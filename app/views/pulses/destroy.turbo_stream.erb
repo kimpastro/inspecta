@@ -1,11 +1,13 @@
-<%# turbo_stream.remove("#{@pulse.hashid}_item") %>
-
 <%= turbo_stream.replace(:header_pulse_list) do %>
- <%= render partial: "pulses/header_list", locals: { quantity_of_pulses: @pool.pulses.size, total_pulses: @pool.quantity } %>
+  <%= render HeaderListComponent.new(pool: @pool) %>
 <% end %>
 
-<% if @pool.pulses.none? %>
-  <%= turbo_stream.replace(:pulse_details) do %>
-    <%= render partial: "pools/empty_state", locals: { pool: @pool } %>
+<%= turbo_stream.remove("#{@pulse.hashid}_item") %>
+
+<%= turbo_stream.replace(:pulse_details) do %>
+  <% if @pool.pulses.exists? %>
+    <%= render PulseDetailComponent.new(pulse_item: @pulse) %>
+  <% else %>
+    <%= render EmptyStateComponent.new(pool: @pool) %>
   <% end %>
 <% end %>

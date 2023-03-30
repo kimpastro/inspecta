@@ -1,10 +1,14 @@
 class PulsesController < ApplicationController
   before_action :set_pulse
-  def show; end
+
+  def show
+    render PulseDetailComponent.new(pulse: @pulse)
+  end
 
   def destroy
+    @pool = @pulse.pool
     @pulse.destroy
-    
+
     respond_to do |format|
       format.turbo_stream
     end
@@ -14,6 +18,5 @@ class PulsesController < ApplicationController
 
   def set_pulse
     @pulse = Pulse.find_by_hashid!(params[:id])
-    @pool = @pulse.pool
   end
 end

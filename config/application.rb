@@ -10,5 +10,14 @@ module Hook
 
     config.time_zone = "Brasilia"
     config.eager_load_paths << Rails.root.join("lib")
+
+    config.generators do |g|
+      g.test_framework :rspec,
+        view_specs: true,
+        helper_specs: false,
+        routing_specs: false,
+        controller_specs: false,
+        request_specs: false
+    end
   end
 end

@@ -1,4 +1,4 @@
-<%= turbo_frame_tag :pulse_details do %>
+<%= tag.turbo_frame id: :pulse_details do %>
   <div class="d-flex flex-column gap-2 border rounded p-3">
     <div class="border-bottom">
       <p>Welcome to Inspecta.</p>
@@ -7,7 +7,7 @@
 
     <div>
       <p><strong>This is your unique URL:</strong></p>
-      <p class="fs-5 font-monospace bg-primary badge"><%= pulse_request_url(pool.hashid) %></p>
+      <p class="fs-5 font-monospace bg-primary badge"><%= pulse_request_url(@pool.hashid) %></p>
     </div>
 
     <div>

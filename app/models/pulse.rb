@@ -5,10 +5,16 @@ class Pulse < ApplicationRecord
 
   scope :received, -> { order(id: :desc) }
 
-  after_create_commit -> { 
-    broadcast_prepend_to pool, target: "pulses", partial: "pulses/pulse_item", locals: { pulse: self }
-    broadcast_replace_to pool, target: :header_pulse_list, partial: "pulses/header_list", locals: { quantity_of_pulses: self.pool.pulses.size, total_pulses: self.pool.quantity }
-  }
-
+  after_create_commit :broadcast_pulse_creation
   after_destroy_commit -> { broadcast_remove_to pool, target: "#{self.hashid}_item" }
+
+  def broadcast_pulse_creation
+    broadcast_prepend_to pool,
+                         target: "pulses",
+                         html: ApplicationController.render(PulseItemComponent.new(pulse_item: self), layout: false)
+
+    broadcast_replace_to pool,
+                         target: :header_pulse_list,
+                         html: ApplicationController.render(HeaderListComponent.new(pool: self.pool), layout: false)
+  end
 end
