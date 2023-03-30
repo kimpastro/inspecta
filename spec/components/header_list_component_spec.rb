@@ -1,15 +1,26 @@
-# frozen_string_literal: true
-
 require "rails_helper"
 
 RSpec.describe HeaderListComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
-
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+  let(:pool) { create(:pool) }
+  
+  context "When pool have pulses" do
+    let!(:pulse) { create(:pulse, pool: pool) }
+    
+    it "show pulse_count positive" do
+      render_inline(described_class.new(pool: pool))
+      counter_text = "#{pool.pulses.size}/#{pool.quantity}"
+      
+      expect(page).to have_text(counter_text)
+    end
+  end
+  
+  context "When pool have no pulses" do
+    it "shows pulse_count as zero" do
+      render_inline(described_class.new(pool: pool))
+      
+      counter_text = "0/#{pool.quantity}"
+      expect(page).to have_text(counter_text)
+      expect(page).to have_text("Waiting for requests")
+    end
+  end
 end
