@@ -3,7 +3,7 @@ class Pulse < ApplicationRecord
 
   belongs_to :pool, counter_cache: :pulses_count
 
-  scope :received, -> { order(id: :desc) }
+  scope :newest_first, -> { order(id: :desc) }
 
   after_create_commit :broadcast_pulse_creation
   after_destroy_commit -> { broadcast_remove_to pool, target: "#{self.hashid}_item" }

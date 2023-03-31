@@ -2,7 +2,7 @@ class PoolsController < ApplicationController
   before_action :set_pool
 
   def show
-    @pulses = @pool.pulses.received
+    @pulses = @pool.pulses.newest_first
   end
   
   private
