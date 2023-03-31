@@ -23,7 +23,7 @@ Access `localhost:3000`
 `bin/bundle exec rspec`
 
 ## See it in action
-You can check it online [here](https://atomic-hook.fly.dev).
+You can check it online [here](https://inspecta.fly.dev).
 
 ## License
 MIT
