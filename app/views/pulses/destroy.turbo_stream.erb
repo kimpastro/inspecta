@@ -6,7 +6,7 @@
 
 <%= turbo_stream.replace(:pulse_details) do %>
   <% if @pool.pulses.exists? %>
-    <%= render PulseDetailComponent.new(pulse_item: @pulse) %>
+    <%= render PulseDetailComponent.new(pulse: @pulse) %>
   <% else %>
     <%= render EmptyStateComponent.new(pool: @pool) %>
   <% end %>
