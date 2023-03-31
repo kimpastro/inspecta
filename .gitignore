@@ -36,3 +36,4 @@
 /node_modules
 
 fly.toml
+/lib/tasks/fly.rake
