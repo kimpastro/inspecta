@@ -4,5 +4,5 @@
 
 import { application } from "./application"
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
+import FadeEffectController from "./fade_effect_controller"
+application.register("fade-effect", FadeEffectController)

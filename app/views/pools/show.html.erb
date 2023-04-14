@@ -5,7 +5,7 @@
     <%= render HeaderListComponent.new(pool: @pool) %>
     
     <div id="pulses" class="d-flex flex-column gap-1">
-      <%= render PulseItemComponent.with_collection(@pulses) %>
+      <%= render PulseItemComponent.with_collection(@pulses), class: 'animate__fadeIn' %>
     </div>
   </div>
 

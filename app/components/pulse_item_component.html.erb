@@ -1,4 +1,4 @@
-<%= tag.turbo_frame id: "#{@pulse.hashid}_item" do %>
+<%= tag.turbo_frame id: "#{@pulse.hashid}_item", data: { controller: 'fade-effect' } do %>
   <div class="d-flex justify-content-between gap-0 pulse-item bg-white">
     <%= link_to pulse_path(@pulse.hashid),
                 data: { turbo_frame: :pulse_details },
