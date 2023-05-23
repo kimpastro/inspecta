@@ -1,0 +1,41 @@
+version: "3.9"
+services:
+  web-app:
+    build:
+      context: .
+    env_file:
+      - .env.local
+    init: true
+    networks:
+      - inspecta
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+      - redis
+  db:
+    image: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    networks:
+      - inspecta
+    ports:
+      - 5432:5432
+  redis:
+    image: redis
+    networks:
+      - inspecta
+    ports:
+      - 6379:6379
+    volumes:
+      - redisdata:/data
+
+
+volumes:
+  pgdata:
+  redisdata:
+networks:
+  inspecta:
