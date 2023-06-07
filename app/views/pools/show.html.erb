@@ -10,7 +10,10 @@
   </div>
 
   <div class="col-md-9 col-sm-12 p-3">
-    <%= render EmptyStateComponent.new(pool: @pool) %>
-    <%= render PulseDetailComponent.new(pulse: @pulses&.first) %>
+    <% if @pulses.any? %>
+      <%= render PulseComponent.new(pulse: @pulses.first) %>
+    <% else %>
+      <%= render EmptyStateComponent.new(pool: @pool) %>
+    <% end %>
   </div>
 </div>

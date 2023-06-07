@@ -2,7 +2,7 @@ class PulsesController < ApplicationController
   before_action :set_pulse
 
   def show
-    render PulseDetailComponent.new(pulse: @pulse)
+    render PulseComponent.new(pulse: @pulse)
   end
 
   def destroy

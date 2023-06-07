@@ -3,7 +3,7 @@ class EmptyStateComponent < ApplicationComponent
     @pool = pool
   end
 
-  def render?
-    @pool.pulses.size.zero?
+  def unique_url
+    pulse_request_url(@pool.hashid)
   end
 end

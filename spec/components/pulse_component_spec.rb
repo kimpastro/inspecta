@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe PulseDetailComponent, type: :component do
+RSpec.describe PulseComponent, type: :component do
   let(:pool)  { create(:pool)              }
   let(:pulse) { create(:pulse, pool: pool) }
 

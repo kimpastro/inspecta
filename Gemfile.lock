@@ -93,10 +93,6 @@ GEM
     diff-lcs (1.5.0)
     dockerfile-rails (1.2.3)
       rails
-    dotenv (2.8.1)
-    dotenv-rails (2.8.1)
-      dotenv (= 2.8.1)
-      railties (>= 3.2)
     erubi (1.12.0)
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
@@ -105,6 +101,7 @@ GEM
       railties (>= 5.0.0)
     faker (3.1.1)
       i18n (>= 1.8.11, < 2)
+    foreman (0.87.2)
     globalid (1.1.0)
       activesupport (>= 5.0)
     hashid-rails (1.4.1)
@@ -266,9 +263,9 @@ DEPENDENCIES
   capybara
   cssbundling-rails
   dockerfile-rails
-  dotenv-rails
   factory_bot_rails
   faker
+  foreman
   hashid-rails
   jsbundling-rails
   pg

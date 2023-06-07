@@ -4,9 +4,9 @@
 
 <%= turbo_stream.remove("#{@pulse.hashid}_item") %>
 
-<%= turbo_stream.replace(:pulse_details) do %>
+<%= turbo_stream.replace(:pulse) do %>
   <% if @pool.pulses.exists? %>
-    <%= render PulseDetailComponent.new(pulse: @pulse) %>
+    <%= render PulseComponent.new(pulse: @pulse) %>
   <% else %>
     <%= render EmptyStateComponent.new(pool: @pool) %>
   <% end %>

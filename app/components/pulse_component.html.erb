@@ -1,4 +1,4 @@
-<%= tag.turbo_frame id: :pulse_details do %>
+<%= tag.turbo_frame id: :pulse do %>
   <div class="d-flex flex-column gap-2">
     <div class="d-flex gap-4">
       <div class="w-100">
@@ -19,11 +19,11 @@
             </tr>
             <tr>
               <td>Date</td>
-              <td><%= l(@pulse.created_at, format: :with_sec) %> UTC - (<%= time_ago_in_words(@pulse.created_at) %> ago)</td>
+              <td><%= show_date %></td>
             </tr>
             <tr>
               <td>Size</td>
-              <td><%= @pulse.size %> bytes</td>
+              <td><%= show_byte_size %></td>
             </tr>
             <tr>
               <td>ID</td>
@@ -42,7 +42,7 @@
           <tbody class="table-group-divider">
             <% @pulse.headers.each do |key, value| %>
               <tr>
-                <td><%= key.gsub(/^HTTP_/, '').downcase %></td>
+                <td><%= sanitize_header_key(key) %></td>
                 <td><%= value %></td>
               </tr>
             <% end %>

@@ -18,9 +18,9 @@ gem 'rack-cors'
 
 group :development, :test do
   gem 'pry-byebug'
+  gem 'foreman', require: false
   gem 'faker'
   gem 'factory_bot_rails'
-  gem 'dotenv-rails'
   gem 'rspec-rails'
 end
 
