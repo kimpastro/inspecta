@@ -25,5 +25,8 @@ Access `localhost:3000`
 ## See it in action
 You can check it online [here](https://inspecta.fly.dev).
 
+## Docker Compose
+If you have docker-compose installed just run: `docker compose up` and you are good to go.
+
 ## License
 MIT
