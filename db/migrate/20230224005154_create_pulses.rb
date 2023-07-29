@@ -3,11 +3,11 @@ class CreatePulses < ActiveRecord::Migration[7.0]
     create_table :pulses do |t|
       t.references :pool, null: false, foreign_key: true
       t.string :http_method, limit: 20
-      t.jsonb :headers
+      t.string :headers
       t.string :query_string
       t.string :content_type
       t.integer :size, default: 0
-      t.jsonb :form_params
+      t.string :form_params
       t.text :body
       t.string :ip
 

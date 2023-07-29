@@ -11,9 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_03_30_001002) do
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "pools", force: :cascade do |t|
     t.integer "quantity", default: 500, null: false
     t.datetime "created_at", null: false
@@ -22,13 +19,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_30_001002) do
   end
 
   create_table "pulses", force: :cascade do |t|
-    t.bigint "pool_id", null: false
+    t.integer "pool_id", null: false
     t.string "http_method", limit: 20
-    t.jsonb "headers"
+    t.string "headers"
     t.string "query_string"
     t.string "content_type"
     t.integer "size", default: 0
-    t.jsonb "form_params"
+    t.string "form_params"
     t.text "body"
     t.string "ip"
     t.datetime "created_at", null: false

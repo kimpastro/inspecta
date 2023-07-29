@@ -17,4 +17,8 @@ class Pulse < ApplicationRecord
                          target: :header_pulse_list,
                          html: ApplicationController.render(HeaderListComponent.new(pool: self.pool), layout: false)
   end
+
+  def json_header
+    JSON.parse headers.gsub('=>', ':')
+  end
 end

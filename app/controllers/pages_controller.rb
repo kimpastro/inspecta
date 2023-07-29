@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def index
+    sp_full_pretty
     find_or_initialize_pool_cookie
   end
 

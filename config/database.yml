@@ -9,11 +9,17 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
-  <<: *default
-  database: inspecta_development
+  # <<: *default
+  adapter: sqlite3
+  database: db/inspecta_development.sqlite3
+  pool: 5
+  timeout: 5000
 test:
-  <<: *default
-  database: inspecta_test
+  # <<: *default
+  adapter: sqlite3
+  database: db/inspecta_test.sqlite3
+  pool: 5
+  timeout: 5000
 production:
   <<: *default
   database: inspecta_production
