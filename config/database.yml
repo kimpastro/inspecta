@@ -1,25 +1,15 @@
 default: &default
-  adapter: postgresql
+  adapter: sqlite3
   encoding: unicode
-  database: <%= ENV.fetch('DATABASE_NAME') %>
-  username: <%= ENV.fetch('DATABASE_USER') %>
-  password: <%= ENV.fetch('DATABASE_PASSWORD') %>
-  port: <%= ENV.fetch('DATABASE_PORT', 5432) %>
-  host: <%= ENV.fetch('DATABASE_HOST') %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
 
 development:
-  # <<: *default
-  adapter: sqlite3
+  <<: *default
   database: db/inspecta_development.sqlite3
-  pool: 5
-  timeout: 5000
 test:
-  # <<: *default
-  adapter: sqlite3
+  <<: *default
   database: db/inspecta_test.sqlite3
-  pool: 5
-  timeout: 5000
 production:
   <<: *default
-  database: inspecta_production
+  database: db/inspecta_production.sqlite3

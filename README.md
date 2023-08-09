@@ -7,26 +7,20 @@ It uses the power of turbo stream to handle the requests automatically without t
 
 ---
 
-## Installation
-> Make sure that `.env.local` and `.env.test` have the connection strings to your database (by changing the `DATABASE_URL`) and to your redis (by changing `REDIS_URL`).
+## Running with docker
+```bash
+# Change port 80 to whatever you want.
+docker run --rm -p 80:3000 kimpastro/inspecta:1.0
+```
+Access: `http://localhost`
 
-Run command: `bin/setup` and you are good to go.
+## Running without docker
 
-It will create databases `inspecta_development` and `inspecta_test`.
+```bash
+# setup the app
+bin/setup
 
-## Running
-`bin/dev` or just `bin/rails server`
-
-Access `localhost:3000`
-
-## Testing
-`bin/bundle exec rspec`
-
-## See it in action
-You can check it online [here](https://inspecta.fly.dev).
-
-## Docker Compose
-If you have docker-compose installed just run: `docker compose up` and you are good to go.
-
-## License
-MIT
+# then start the server with
+bin/dev
+```
+Access: `http://localhost:3000`

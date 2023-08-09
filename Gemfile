@@ -5,13 +5,11 @@ ruby "3.2.2"
 
 gem "rails", "~> 7.0.4", ">= 7.0.4.2"
 gem "sprockets-rails"
-gem 'pg'
 gem 'puma'
 gem "jsbundling-rails"
 gem "cssbundling-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
-gem 'redis'
 gem 'bcrypt'
 gem "bootsnap", require: false
 gem 'rack-cors'
@@ -27,8 +25,9 @@ end
 
 group :development do
   gem "web-console"
-  gem "dockerfile-rails"
 end
+
+gem "dockerfile-rails", require: false
 
 group :test do
   gem "selenium-webdriver"
@@ -38,7 +37,8 @@ end
 
 gem "hashid-rails"
 gem 'view_component'
-
 gem "sqlite3", "~> 1.6"
 
-gem 'stack_printer', git: 'https://github.com/kimpastro/stack_printer.git', branch: 'main'
+gem "pg", "~> 1.5"
+
+gem "redis", "~> 5.0"
